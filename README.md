@@ -1,37 +1,24 @@
-## Welcome to GitHub Pages
+## Buscador de imágenes
 
-You can use the [editor on GitHub](https://github.com/dasorey/buscador_imagenes/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Puedes ver el resultado de este proyecto en la url: [Web proyecto](https://dasorey.github.io/buscador_imagenes/)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Estructura de archivos
 
-### Markdown
+El proyecto está basado en AngularJS y el plugin AngularGrid con Infinite Scroll. Además utiliza los estilos Material de Google para los componentes.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. index.html
+2. js
+  * app.js
+  * angulargrid.js
+  * ng-infinite-scroll.js
+3. templates
+  * promp1.html
+4. css
+  * style.css
+  * normalize.css
+  
+### Funcionamiento
 
-```markdown
-Syntax highlighted code block
+La página carga de forma inicial unas imagénes aleatorias. El usuario introduce la palabra o palabras que desea buscar en el input y pulsa enter. A la derecha aparecerá el número de imágenes disponibles con esos criterios de búsqueda y debajo las primeras 30 imágenes, a medida que el usuario haga scroll de forma automática irá cargando nuevas imágenes hasta cargar el total de las imágenes.
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/dasorey/buscador_imagenes/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+El usuario puede hacer click en las imágenes para verlas a tamaño completo, en la ventana emergente tendrá la opción de ver más fotos del mismo fotógrafo o también la podrá descargar. La plantilla de la ventana emergente está en templates/promp1.html.
