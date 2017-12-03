@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Diego Asorey Cacheda</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.4/angular-material.css'>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+
+    <div ng-controller="MainCtrl as vm" ng-cloak="" ng-app="app" layout="column" layout-fill>
+      <md-content id="content-scroller" style="margin-top: 30px;">
+          <div layout="row">
+              <div flex-xs flex-gt-xs="33" layout="column">
+                <div class="md-padding numero_imagenes">Diego Asorey Cacheda</div>
+              </div>
+              <div flex-xs flex-gt-xs="33" layout="column">
+                <md-card style="border-radius: 50px;">
+                    <input class="md-padding" style="border-radius: 50px; border: 0px solid; outline: none;" placeholder="Busca fotos increibles ..." my-enter="vm.loadMoreShots()" ng-model="params.keyword">
+                </md-card>
+              </div>
+              <div flex-xs flex-gt-xs="33" layout="column">
+                  <div class="md-padding numero_imagenes" ng-if="paramTemp.length > 0">Número de imagenes: {{total_imagenes}}</div>
+              </div>
+            </div>
+
+        <!--Utilizo un ng-if para las nuevas búsquedas ya que un bug del plugin no actualiza correctamente el array del ng-repeat y de esta manera fuerzo la carga.-->
+        <div ng-if="borrar"> 
+            <div
+                class="cards-wrap"
+                angular-grid="shots"
+                ag-grid-width="300"
+                ag-gutter-size="12"
+                ag-id="shots"
+                ag-infinite-scroll="vm.loadMoreShots()"
+                >
+              <div class="card" ng-repeat="shot in shots track by $index" ng-click="showAdvanced($event, shot)">
+                  <div class="img" style="background-image: url({{::shot.urls.small}});"></div>
+                  <div class="inside">
+                    <div class="nombre_autor">{{shot.user.name}}</div>
+                    <div class="description" ng-bind-html="::shot.description | unsafe"></div>
+                  </div>
+              </div>
+            </div>
+            <div class="loading-more-indicator" ng-show="vm.loadingMore">
+              <md-progress-circular md-mode="indeterminate" md-diameter="64" class="progress-swatch"></md-progress-circular>
+            </div>
+        </div>
+      </md-content>
+    </div>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-route.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-aria.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-messages.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.4/angular-material.js'></script>
+    <script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/assets-cache.js'></script>
+    
+    <script src='js/ng-infinite-scroll.js'></script>
+    <script src='js/angulargrid.js'></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>

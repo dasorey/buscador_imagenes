@@ -1,0 +1,19 @@
+<md-dialog aria-label="Imagen">
+    <form ng-cloak>
+        <md-dialog-content>
+            <div>
+                <img class="img_grande" ng-src="{{foto_seleccionada.urls.raw}}" alt="image at full size">
+            </div>
+        </md-dialog-content>
+      
+        <md-dialog-actions layout="row">
+            <md-button href="{{foto_seleccionada.user.links.html}}" target="_blank" md-autofocus>
+                Más de {{foto_seleccionada.user.name}}
+            </md-button>
+            <span flex></span>
+            <md-button href="{{foto_seleccionada.links.download}}" target="_blank">
+                Descargar
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
